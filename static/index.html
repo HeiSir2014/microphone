@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link href="./styles.css" rel="stylesheet">
+    <title>麦克风侦听 v2.1.3</title>
+  </head>
+  <body>
+    <h1>麦克风侦听服务</h1>
+    <div class="select">
+        <label for="audioSource">麦克风: </label><select id="audioSource"></select>
+    </div>
+    <audio id="gum-local" controls autoplay></audio>
+    
+    <div class="tip">窗口关闭后，会自动隐藏到系统托盘中<div class="timeout"></div></div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>

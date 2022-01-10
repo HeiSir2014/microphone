@@ -1,0 +1,53 @@
+/* styles.css */
+
+/* Add styles here to customize the appearance of your app */
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+body *{
+    user-select: none;
+}
+
+h1{
+    text-align: center;
+    width: 100%;
+}
+
+.select{
+    width: 60%;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 24px;
+}
+.select *{
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 5px;
+}
+
+.select select{
+    width: calc(100% - 100px);
+}
+
+audio{
+    width: 60%;
+    margin: 30px auto;
+    display: block;
+}
+
+.tip{
+    position:absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #888;
+    width: fit-content;
+    font-size: 13px;
+    line-height: 24px;
+}

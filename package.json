@@ -1,0 +1,110 @@
+{
+  "name": "micro",
+  "version": "2.1.3",
+  "description": "microphone listening",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^16.0.2",
+    "electron-builder": "^22.14.5"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+    "start": "electron .",
+    "startDebug": "electron . --inspect-brk",
+    "pack-mac": "electron-builder --mac --publish always",
+    "pack-win": "electron-builder --win --publish always",
+    "postinstall": "electron-builder install-app-deps",
+    "pack-linux": "electron-builder --linux --publish always",
+    "windows-latest": "npm run pack-win",
+    "macos-latest": "npm run pack-mac",
+    "ubuntu-latest": "npm run pack-linux"
+  },
+  "build": {
+    "appId": "cn.heisir.micro",
+    "artifactName": "microphone-${os}_${arch}-v${version}.${ext}",
+    "electronVersion": "16.0.2",
+    "copyright": "Copyright © 2021 ${author}",
+    "compression": "normal",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/*",
+      "!.github/*",
+      "!README.md",
+      "!.gitignore"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis"
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "static/icon/logo-512.png",
+      "requestedExecutionLevel":"requireAdministrator"
+    },
+    "dmg": {
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "contents": [
+        {
+          "x": 410,
+          "y": 230,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 230,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "hardenedRuntime": true,
+      "appId": "cn.heisir.micro-mac",
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg"
+      ],
+      "icon": "static/icon/logo.icns"
+    },
+    "nsis": {
+      "perMachine": true,
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "static/icon/logo.ico",
+      "uninstallerIcon": "static/icon/logo.ico",
+      "installerHeaderIcon": "static/icon/logo.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "micro"
+    },
+    "appImage": {
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "maintainer": "heisir <heisir21@163.com>",
+      "category": "Utility"
+    }
+  },
+  "author": "heisir",
+  "license": "MIT"
+}
